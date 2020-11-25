@@ -21,6 +21,10 @@ public class BoardService {
 		return bDao.retireveAllBoard();
 	}
 
+	public Board findById(int bNo) {
+		return bDao.findById(bNo);
+	}
+
 
 	
 

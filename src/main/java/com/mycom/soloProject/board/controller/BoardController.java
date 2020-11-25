@@ -1,9 +1,11 @@
 package com.mycom.soloProject.board.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mycom.soloProject.board.model.dto.Board;
 import com.mycom.soloProject.board.service.BoardService;
 
 @RestController
@@ -15,7 +17,8 @@ public class BoardController {
 	public BoardController(BoardService bService) {
 		this.bService = bService;
 	}
-
+	
+	// 게시판 전체 목록
 	@GetMapping("/board")
 	public ModelAndView index() {
 		
@@ -23,9 +26,13 @@ public class BoardController {
 		mav.addObject("boards", bService.retireveAllBoard());
 		mav.setViewName("/board/board");
 		
-		System.out.println(bService.retireveAllBoard().get(0));
-		
 		return mav;
+	}
+	
+	// 상세 보기
+	@GetMapping("/board/{bNo}")
+	public Board findById(@PathVariable int bNo) {
+		return bService.findById(bNo);
 	}
 	
 }

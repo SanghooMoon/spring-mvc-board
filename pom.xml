@@ -148,6 +148,14 @@
 		    <version>2.9.8</version>
 		</dependency>
 		
+		<!-- jSon 타입으로 리턴이 안되서 Jackson 라이브러리 추가 후 해결-->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.7</version>
+		</dependency>
+		
+		
 		<!-- Lombok 라이브러리, 편리한 어노테이션 제공(getter, setter 등등) -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
@@ -183,7 +191,7 @@
             <artifactId>spring-test</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-		
+        
 	</dependencies>
     <build>
         <plugins>

@@ -21,4 +21,9 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.selectList("boardMapper.retireveAllBoard");
 	}
 
+	@Override
+	public Board findById(int bNo) {
+		return sqlSession.selectOne("boardMapper.findById", bNo);
+	}
+
 }

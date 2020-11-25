@@ -10,4 +10,14 @@
 		SELECT * FROM TB_BOARD WHERE BNO = #{bNo}
 	</select>
 	
+	<insert id="createBoard" parameterType="Board">
+		INSERT INTO TB_BOARD VALUES(
+			(SELECT TO_CHAR(MAX(BNO)+1) FROM TB_BOARD),
+			#{title},
+			#{content},
+			#{author},
+			SYSDATE
+		)
+	</insert>
+	
 </mapper>

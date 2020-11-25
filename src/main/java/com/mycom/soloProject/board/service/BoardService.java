@@ -25,6 +25,10 @@ public class BoardService {
 		return bDao.findById(bNo);
 	}
 
+	public int createBoard(Board board) {
+		return bDao.createBoard(board);
+	}
+
 
 	
 

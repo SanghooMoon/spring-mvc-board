@@ -10,4 +10,6 @@ public interface BoardDao {
 
 	Board findById(int bNo);
 
+	int createBoard(Board board);
+
 }

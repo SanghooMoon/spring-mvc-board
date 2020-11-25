@@ -26,4 +26,9 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.selectOne("boardMapper.findById", bNo);
 	}
 
+	@Override
+	public int createBoard(Board board) {
+		return sqlSession.insert("boardMapper.createBoard", board);
+	}
+
 }

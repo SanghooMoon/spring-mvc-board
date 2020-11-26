@@ -1,5 +1,7 @@
 package com.mycom.soloProject.board.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +41,7 @@ public class BoardController {
 	
 	// 글 작성
 	@PostMapping("/board/new")
-	public int createBoard(@RequestBody Board board) {
+	public int createBoard(@Valid @RequestBody Board board) {
 		return bService.createBoard(board);
 	}
 	

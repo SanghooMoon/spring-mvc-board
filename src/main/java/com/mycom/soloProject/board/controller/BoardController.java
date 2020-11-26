@@ -2,6 +2,8 @@ package com.mycom.soloProject.board.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,7 @@ import com.mycom.soloProject.board.service.BoardService;
 @RestController
 public class BoardController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	private BoardService bService;
 	
 	// 생성자를 통한 의존성주입(DI)
@@ -26,6 +29,7 @@ public class BoardController {
 	// 게시판 전체 목록
 	@GetMapping("/board")
 	public ModelAndView index() {
+		logger.info("called index()");	// 콘솔에 로그 남기기
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boards", bService.retireveAllBoard());
@@ -37,19 +41,24 @@ public class BoardController {
 	// 상세 보기
 	@GetMapping("/board/{bNo}")
 	public Board findById(@PathVariable int bNo) {
+		logger.info("called findById()");
 		return bService.findById(bNo);
 	}
 	
 	// 글 작성
 	@PostMapping("/board/new")
 	public int createBoard(@Valid @RequestBody Board board) {
+		logger.info("called createBoard()");	
 		return bService.createBoard(board);
 	}
 	
 	// 글 삭제
 	@DeleteMapping("/board/{bNo}")
 	public int deleteBoard(@PathVariable int bNo) {
+		logger.info("called deleteBoard()");	
 		return bService.deleteBoard(bNo);
 	}
+	
+	
 	
 }

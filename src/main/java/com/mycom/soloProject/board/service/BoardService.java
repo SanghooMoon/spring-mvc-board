@@ -32,7 +32,6 @@ public class BoardService {
 	public int deleteBoard(int bNo) {
 		if(bDao.findById(bNo) == null)
 			throw new IllegalArgumentException("해당 게시글이 존재하지 않습니다.[bNo : " + bNo + "]" );
-		
 		return bDao.deleteBoard(bNo);
 	}
 

@@ -12,4 +12,6 @@ public interface BoardDao {
 
 	int createBoard(Board board);
 
+	int deleteBoard(int bNo);
+
 }

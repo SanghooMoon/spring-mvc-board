@@ -2,6 +2,7 @@ package com.mycom.soloProject.board.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,6 +44,12 @@ public class BoardController {
 	@PostMapping("/board/new")
 	public int createBoard(@Valid @RequestBody Board board) {
 		return bService.createBoard(board);
+	}
+	
+	// 글 삭제
+	@DeleteMapping("/board/{bNo}")
+	public int deleteBoard(@PathVariable int bNo) {
+		return bService.deleteBoard(bNo);
 	}
 	
 }

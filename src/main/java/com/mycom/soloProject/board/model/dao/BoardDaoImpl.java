@@ -31,4 +31,9 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.insert("boardMapper.createBoard", board);
 	}
 
+	@Override
+	public int deleteBoard(int bNo) {
+		return sqlSession.delete("boardMapper.deleteBoard", bNo);
+	}
+
 }

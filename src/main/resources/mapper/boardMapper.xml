@@ -20,4 +20,8 @@
 		)
 	</insert>
 	
+	<delete id="deleteBoard">
+		DELETE FROM TB_BOARD WHERE BNO = #{bNo}
+	</delete>
+	
 </mapper>

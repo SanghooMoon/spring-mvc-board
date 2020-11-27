@@ -67,7 +67,4 @@ public class BoardController {
 		return bService.updateById(bNo, board);
 	}
 	
-	
-	
-	
 }

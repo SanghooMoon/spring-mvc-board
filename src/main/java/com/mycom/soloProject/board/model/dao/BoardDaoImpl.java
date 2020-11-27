@@ -36,4 +36,9 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.delete("boardMapper.deleteBoard", bNo);
 	}
 
+	@Override
+	public int updateById(Board board) {
+		return sqlSession.update("boardMapper.updateById", board);
+	}
+
 }

@@ -35,6 +35,13 @@ public class BoardService {
 		return bDao.deleteBoard(bNo);
 	}
 
+	public int updateById(int bNo, Board board) {
+		if(bDao.findById(bNo) == null)
+			throw new IllegalArgumentException("해당 게시글이 존재하지 않습니다.[bNo : " + bNo + "]" );
+		board.setBno(bNo);
+		return bDao.updateById(board);
+	}
+
 
 	
 

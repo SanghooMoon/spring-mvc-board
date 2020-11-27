@@ -7,7 +7,7 @@
 	</select>
 	
 	<select id="findById" resultType="Board">
-		SELECT * FROM TB_BOARD WHERE BNO = #{bNo}
+		SELECT * FROM TB_BOARD WHERE BNO = #{bno}
 	</select>
 	
 	<insert id="createBoard" parameterType="Board">
@@ -24,4 +24,8 @@
 		DELETE FROM TB_BOARD WHERE BNO = #{bNo}
 	</delete>
 	
+	<update id="updateById" parameterType="Board">
+		UPDATE TB_BOARD SET TITLE = #{title}, CONTENT = #{content}, AUTHOR = #{author}
+		WHERE BNO = #{bno}
+	</update>
 </mapper>

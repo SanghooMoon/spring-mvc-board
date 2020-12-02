@@ -84,9 +84,14 @@ public class BoardController {
 	
 	// 글 삭제
 	@DeleteMapping("/board/{bNo}")
-	public int deleteBoard(@PathVariable int bNo) {
+	public ModelAndView deleteBoard(@PathVariable int bNo) {
 		logger.info("called deleteBoard()");	
-		return bService.deleteBoard(bNo);
+		
+		bService.deleteBoard(bNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board");
+		return mav;
 	}
 	
 	// 글 수정

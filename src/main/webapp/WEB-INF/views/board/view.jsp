@@ -13,5 +13,10 @@
 	<p>작성자 : ${board.author}</p>
 	<p>내용 : ${board.content}</p>
 	
+	<form action="/board/${board.bno }" method="post">
+	  <input type="hidden" name="_method" value="delete" />
+	  <button type="submit">삭제</button>
+	</form>
+	
 </body>
 </html>

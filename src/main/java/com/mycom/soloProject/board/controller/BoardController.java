@@ -137,7 +137,7 @@ public class BoardController {
 	}
 	// 답글 달기
 	@PostMapping("/board/reply")
-	public ModelAndView createReply(Board board) {
+	public ModelAndView createReply(@Valid Board board) {
 		logger.info("called createReply()");	
 		
 		bService.addReply(board);

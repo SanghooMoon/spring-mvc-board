@@ -16,7 +16,7 @@
 		<h2>Dark Striped Table</h2>
 		<p>Combine .table-dark and .table-striped to create a dark,
 			striped table:</p>
-		<table class="table table-dark table-striped">
+		<table class="table table-white table-striped">
 			<thead>
 				<tr>
 					<th>번호</th>
@@ -29,7 +29,17 @@
 				<c:forEach items="${boards}" var="board">
 					<tr>
 						<td>${board.bno }</td>
-						<td><a href="/board/${board.bno}">${board.title }</a></td>
+						<td>
+							<a href="/board/${board.bno}">
+								<c:if test="${board.depth > 0}">
+									<c:forEach begin="0" end="${board.depth}">
+										&nbsp;
+									</c:forEach>
+									ㄴ
+								</c:if>
+								${board.title }
+							</a>
+						</td>
 						<td>${board.author }</td>
 						<td>${board.write_date }</td>
 					</tr>

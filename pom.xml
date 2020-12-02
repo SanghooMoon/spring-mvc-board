@@ -133,7 +133,6 @@
 		    <version>11.2.0.3</version>
 		</dependency>
 		
-		
 		<!-- Spring JDBC 라이브러리 -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -154,7 +153,6 @@
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.7</version>
 		</dependency>
-		
 		
 		<!-- Lombok 라이브러리, 편리한 어노테이션 제공(getter, setter 등등) -->
 		<dependency>
@@ -212,7 +210,7 @@
 			<artifactId>log4jdbc-remix</artifactId>
 			<version>0.2.7</version>
 		</dependency>
-        
+
 	</dependencies>
     <build>
         <plugins>

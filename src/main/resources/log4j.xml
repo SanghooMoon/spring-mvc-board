@@ -31,6 +31,11 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+	<!-- 트랜잭션 로그 -->
+	<logger name="org.springframework.transaction">
+		<level value="debug" />
+	</logger>
 
 	<!-- Root Logger -->
 	<root>
@@ -41,6 +46,7 @@
 	<logger name="jdbc.sqlonly">
         <level value="info" />
     </logger>
+    
     
     <!-- <logger name="jdbc.resultsettable">
         <level value="info" />

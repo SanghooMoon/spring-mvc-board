@@ -30,5 +30,10 @@ public class Board {
 	private String author;
 	
 	private Date write_date;
+	
+	// 계층형 게시판을 위한 열 추가
+	private int group_id;	// 그룹의 아이디
+	private int depth;		// 깊이(계층)
+	private int g_level;	// 그룹 내 순서(오름차순)
 		
 }

@@ -17,6 +17,10 @@
 	  <input type="hidden" name="_method" value="delete" />
 	  <button type="submit">삭제</button>
 	</form>
+	<br>
+	<form action="/board/edit/${board.bno }" method="get">
+	  <button type="submit">수정</button>
+	</form>
 	
 </body>
 </html>

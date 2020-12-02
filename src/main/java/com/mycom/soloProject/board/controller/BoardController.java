@@ -94,11 +94,36 @@ public class BoardController {
 		return mav;
 	}
 	
-	// 글 수정
-	@PutMapping("/board/{bNo}")
-	public int updateById(@PathVariable int bNo, @Valid @RequestBody Board board) {
+	// 글 수정(화면)
+	@GetMapping("/board/edit/{bNo}")
+	public ModelAndView updateByIdView(@PathVariable int bNo) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board", bService.findById(bNo));
+		mav.setViewName("/board/write");
+		return mav;
+	}
+	
+	// 글 수정(Json)
+	@PutMapping(value="/board/{bNo}", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ModelAndView updateByIdForJson(@PathVariable int bNo, @Valid @RequestBody Board board) {
 		logger.info("called updateById()");	
-		return bService.updateById(bNo, board);
+		
+		bService.updateById(bNo, board);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board");
+		return mav;
+	}
+	// 글 수정(Form)
+	@PutMapping(value="/board/{bNo}", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public ModelAndView updateByIdForForm(@PathVariable int bNo, @Valid Board board) {
+		logger.info("called updateById()");	
+		
+		bService.updateById(bNo, board);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board");
+		return mav;
 	}
 	
 }

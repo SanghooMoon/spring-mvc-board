@@ -41,4 +41,14 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.update("boardMapper.updateById", board);
 	}
 
+	@Override
+	public void addReply(Board board) {
+		sqlSession.insert("boardMapper.addReply", board);
+	}
+
+	@Override
+	public void updateParentsBoards(Board board) {
+		sqlSession.update("boardMapper.updateParentsBoards", board);
+	}
+
 }

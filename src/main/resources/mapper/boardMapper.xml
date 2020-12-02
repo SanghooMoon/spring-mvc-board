@@ -31,4 +31,21 @@
 		UPDATE TB_BOARD SET TITLE = #{title}, CONTENT = #{content}, AUTHOR = #{author}
 		WHERE BNO = #{bno}
 	</update>
+	
+	<insert id="addReply" parameterType="Board">
+		INSERT INTO TB_BOARD VALUES(
+			(SELECT TO_CHAR(MAX(BNO)+1) FROM TB_BOARD),
+			#{title},
+			#{content},
+			#{author},
+			SYSDATE,
+			#{group_id},
+			#{depth}+1, #{g_level}+1
+		)
+	</insert>
+	
+	<update id="updateParentsBoards" parameterType="Board">
+		UPDATE TB_BOARD SET G_LEVEL = G_LEVEL + 1
+		WHERE GROUP_ID = #{group_id} and g_level > #{g_level}
+	</update>
 </mapper>

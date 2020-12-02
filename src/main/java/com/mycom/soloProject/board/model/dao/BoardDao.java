@@ -16,4 +16,8 @@ public interface BoardDao {
 
 	int updateById(Board board);
 
+	void addReply(Board board);
+
+	void updateParentsBoards(Board board);
+
 }

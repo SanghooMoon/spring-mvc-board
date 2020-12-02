@@ -114,6 +114,7 @@ public class BoardController {
 		mav.setViewName("redirect:/board");
 		return mav;
 	}
+	
 	// 글 수정(Form)
 	@PutMapping(value="/board/{bNo}", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView updateByIdForForm(@PathVariable int bNo, @Valid Board board) {
@@ -123,6 +124,25 @@ public class BoardController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/board");
+		return mav;
+	}
+	
+	// 답글(화면)
+	@GetMapping("/board/reply")
+	public ModelAndView replyForm(Board board) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board", board);
+		mav.setViewName("/board/reply");
+		return mav;
+	}
+	// 답글 달기
+	@PostMapping("/board/reply")
+	public ModelAndView createReply(Board board) {
+		logger.info("called createReply()");	
+		
+		bService.addReply(board);
+		
+		ModelAndView mav = new ModelAndView("redirect:/board");
 		return mav;
 	}
 	

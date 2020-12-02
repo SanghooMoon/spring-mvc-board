@@ -27,7 +27,7 @@
 			<tbody>
 				<c:forEach items="${boards}" var="board">
 					<tr>
-						<td>${board.title }</td>
+						<td><a href="/board/${board.bno}">${board.title }</a></td>
 						<td>${board.author }</td>
 						<td>${board.write_date }</td>
 					</tr>

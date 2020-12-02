@@ -41,9 +41,13 @@ public class BoardController {
 	
 	// 상세 보기
 	@GetMapping("/board/{bNo}")
-	public Board findById(@PathVariable int bNo) {
+	public ModelAndView findById(@PathVariable int bNo) {
 		logger.info("called findById()");
-		return bService.findById(bNo);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board",  bService.findById(bNo));
+		mav.setViewName("/board/view");
+		return mav;
 	}
 	
 	// 글 작성

@@ -4,6 +4,7 @@
 	
 	<select id="retireveAllBoard" resultType="Board">
 		SELECT * FROM TB_BOARD
+		ORDER BY GROUP_ID DESC, G_LEVEL ASC
 	</select>
 	
 	<select id="findById" resultType="Board">

@@ -17,7 +17,9 @@
 			#{title},
 			#{content},
 			#{author},
-			SYSDATE
+			SYSDATE,
+			(SELECT TO_CHAR(MAX(BNO)+1) FROM TB_BOARD),
+			0, 1
 		)
 	</insert>
 	

@@ -19,6 +19,7 @@
 		<table class="table table-dark table-striped">
 			<thead>
 				<tr>
+					<th>번호</th>
 					<th>제목</th>
 					<th>글쓴이</th>
 					<th>작성일</th>
@@ -27,6 +28,7 @@
 			<tbody>
 				<c:forEach items="${boards}" var="board">
 					<tr>
+						<td>${board.bno }</td>
 						<td><a href="/board/${board.bno}">${board.title }</a></td>
 						<td>${board.author }</td>
 						<td>${board.write_date }</td>
@@ -34,6 +36,8 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<br>
+		<a href="/board/new">글 작성</a>
 	</div>
 </body>
 </html>

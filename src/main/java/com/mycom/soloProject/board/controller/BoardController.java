@@ -4,6 +4,7 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,11 +51,35 @@ public class BoardController {
 		return mav;
 	}
 	
-	// 글 작성
-	@PostMapping("/board/new")
-	public int createBoard(@Valid @RequestBody Board board) {
+	// 글 작성 화면
+	@GetMapping("/board/new")
+	public ModelAndView createBoardView() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/board/write");
+		return mav;
+	}
+	
+	// 글 작성(Json)
+	@PostMapping(value = "/board/new", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ModelAndView createBoardForJson(@Valid @RequestBody Board board) {
 		logger.info("called createBoard()");	
-		return bService.createBoard(board);
+		
+		bService.createBoard(board);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board");
+		return mav;
+	}
+	// 글 작성(Form)
+	@PostMapping(value = "/board/new", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+	public ModelAndView createBoardForForm(@Valid Board board) {
+		logger.info("called createBoard()");	
+		
+		bService.createBoard(board);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/board");
+		return mav;
 	}
 	
 	// 글 삭제

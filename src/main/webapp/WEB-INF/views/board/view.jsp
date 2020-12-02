@@ -12,5 +12,6 @@
 	<p>제목 : ${board.title}</p>
 	<p>작성자 : ${board.author}</p>
 	<p>내용 : ${board.content}</p>
+	
 </body>
 </html>

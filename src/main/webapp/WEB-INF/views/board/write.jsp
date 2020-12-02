@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form name="myform">
+	<form name="myform" method="post">
 		제목 : <input type="text" name="title" ><br>
-		작성자: <input type="text" name="userid" ><br>
-		내용 : <input type="text" name="contents" ><br>
+		작성자: <input type="text" name="author" ><br>
+		내용 : <input type="text" name="content" ><br>
 		<button type="button"  onclick="goWrite()">등록</button>
 		<!--  button 태그가 type에 대한 말이 없으면 
 		submit 버튼

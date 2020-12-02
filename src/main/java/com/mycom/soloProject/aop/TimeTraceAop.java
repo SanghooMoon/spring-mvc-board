@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect		// Aop임을 나타내는 어노테이션
 public class TimeTraceAop {
 	
+	/*
 	@Around("execution(* com.mycom.soloProject.board.controller..*(..))")
 	public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 		
@@ -27,6 +28,7 @@ public class TimeTraceAop {
     		System.out.println("=====================================================================");
 		}
 	}
+	*/
 	
 //	@After("execution(* com.mycom.soloProject.board.controller..*(..))")
 //	public void after(){
